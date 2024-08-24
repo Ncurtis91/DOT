@@ -1,0 +1,23 @@
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+
+url = "https://safer.fmcsa.dot.gov/CompanySnapshot.aspx"
+dot_number = "3751820"
+
+# open browser
+driver = webdriver.Chrome()
+driver.get(url)
+time.sleep(2)
+
+# select text box
+item = driver.find_element(By.ID, "4")
+
+# put text
+item.send_keys(dot_number)
+time.sleep(2.5)
+
+item.submit()
+time.sleep(5)
+
